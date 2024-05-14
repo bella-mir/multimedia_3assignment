@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="language" content="en" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Map Projections - Map</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+
+  <body class="root">
+    <div class="page">
+      <div class="header__wrapper">
+        <header class="header">
+          <a href="index.html" class="header__logo"></a>
+
+          <nav class="header__nav">
+            <input class="menu__button" type="checkbox" id="menu__button" />
+            <label class="menu__icon" for="menu__button"
+              ><span class="navicon"></span
+            ></label>
+            <ul class="header__list">
+              <li class="header__element">
+                <a disabled class="header__link header__disabled">Home</a>
+              </li>
+              <li class="header__element">
+                <a disabled class="header__link header__disabled">Learn</a>
+              </li>
+              <li class="header__element">
+                <a disabled class="header__link header__disabled">Quiz</a>
+              </li>
+              <li class="header__element">
+                <a href="index.html" class="header__link header__current"
+                  >Bonne</a
+                >
+              </li>
+              <li class="header__element">
+                <a disabled class="header__link header__disabled">About</a>
+              </li>
+            </ul>
+          </nav>
+        </header>
+      </div>
+
+      <main class="page__content">
+        <section class="section__block">
+          <h1 class="page__title">Bonne Projection</h1>
+        </section>
+
+        <section class="section__block">
+          <div class="section__row">
+            <div class="section__fullColumn">
+              <span class="section__rowPart"
+                >A beautiful projection that resembles a heart and reminds us
+                that our world is full of love
+              </span>
+              <ul class="legend">
+                <li class="legend-item">
+                  <div class="legend-color legend-cities"></div>
+                  <div class="legend-label">Cities in my Heart</div>
+                </li>
+                <li class="legend-item">
+                  <div class="legend-color legend-water"></div>
+                  <div class="legend-label">Water</div>
+                </li>
+                <li class="legend-item">
+                  <div class="legend-color legend-land"></div>
+                  <div class="legend-label">Land</div>
+                </li>
+                <li class="legend-item">
+                  <div class="square">
+                    <div class="lines-container">
+                      <div class="line horizontal"></div>
+                      <div class="line vertical"></div>
+                      <div class="line horizontal"></div>
+                      <div class="line vertical"></div>
+                      <div class="line horizontal"></div>
+                      <div class="line vertical"></div>
+                    </div>
+                  </div>
+                  <div class="legend-label">Graticules</div>
+                </li>
+              </ul>
+            </div>
+            <div class="map">
+              <img
+                src="asserts/bonne-01.svg"
+                alt="Bella Mir"
+                class="bonne__image"
+              />
+              <div class="marker markerMinnesota"></div>
+              <div class="marker markerVienna"></div>
+              <div class="marker markerSaintPetersburg"></div>
+              <div class="marker markerBratsk"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section__block">
+          <span class="section__title">Without Bonne :(</span>
+          <div class="map__image"></div>
+        </section>
+
+        <section class="section__block">
+          <span class="section__title">From above</span>
+          <img
+            alt="World From Above"
+            srcset="
+              asserts/from_above.jpeg        1x,
+              asserts/from_above_highres.jpg 2x
+            "
+          />
+        </section>
+
+        <section class="section__block">
+          <div class="assignmentBox">
+            <strong>Assignment Note (Extras)</strong>
+            <ol>
+              <li>
+                I developed a "hamburger menu" for navigation in mobile versions
+                using css
+              </li>
+              <li>
+                The page is deployed on gh-pages, you can access it
+                <a
+                  href="https://bella-mir.github.io/multimedia_3assignment/"
+                  target="_blank"
+                  >here</a
+                >
+              </li>
+              <li>
+                The map (Bonne Projection) is created using D3.js outside this
+                assignemnt
+              </li>
+              <li>
+                Various advanced flex parameteres were used in responsive design
+                (ex.: "flex-direction: column-reverse" - to change order of
+                elements )
+              </li>
+              <li>Unused navigation links in a header are disabled</li>
+            </ol>
+          </div>
+        </section>
+      </main>
+      <footer class="footer__wrapper">
+        <div class="footer">
+          <p class="footer__copyright">&copy;2024.Bella Mironova</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

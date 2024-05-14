@@ -1,0 +1,659 @@
+@import url("https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Ephesis&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Stint+Ultra+Condensed&display=swap");
+
+/* Responsive Design "Desktop-First" */
+
+/* Page */
+.root {
+  background-color: white;
+  font-family: "Poppins", "Arial", sans-serif;
+  color: #213547;
+}
+.page {
+  max-width: 1280px;
+  color: #2d4b73;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  align-items: center;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* General */
+
+a {
+  text-decoration: none;
+  color: #f24194;
+  transition: background-color 0.3s ease;
+  display: block;
+}
+
+a:hover {
+  color: #bf8d30;
+}
+
+body {
+  margin: 0;
+}
+
+/* Shared classes rules */
+
+.section__block {
+  display: flex;
+  flex-direction: column;
+  padding: 2.7% 11.6%;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.section__title {
+  font-weight: 600;
+  font-size: 24px;
+  color: #f24194;
+  margin-bottom: 1rem;
+}
+
+.page__content {
+  padding-top: 50px;
+  height: 100%;
+  min-height: calc(100vh - 80px);
+}
+
+@media (max-width: 768px) {
+  .section__title {
+    font-size: 20px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 375px) {
+  .section__title {
+    font-size: 16px;
+  }
+}
+
+/* Header */
+
+.header__wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(200, 200, 200, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.header {
+  width: 100%;
+  max-width: 984px;
+  opacity: 0.98;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.7% 11.6% 1% 11.6%;
+  min-height: 42px;
+}
+
+.header__current {
+  font-weight: 600;
+}
+
+.header__logo {
+  background-image: url("asserts/geoPyLogo.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 30px;
+  width: 30px;
+  padding: 0;
+}
+
+.header__list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 2rem;
+  z-index: 200;
+}
+
+.header__disabled {
+  cursor: not-allowed;
+}
+
+.header__link {
+  width: 100%;
+}
+
+/* Header Hamburger Menu */
+
+.menu__icon .navicon {
+  display: none;
+  background: #f17b35;
+  border-radius: 10px;
+  display: block;
+  height: 3px;
+  position: relative;
+  width: 18px;
+  transition: background 0.2s ease-out;
+}
+
+.menu__icon {
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+}
+.menu__icon .navicon {
+  background: #f17b35;
+  display: block;
+  height: 3px;
+  border-radius: 10px;
+  position: relative;
+  transition: background 0.2s ease-out;
+  width: 20px;
+}
+.menu__icon .navicon:before,
+.menu__icon .navicon:after {
+  background: #f17b35;
+  border-radius: 10px;
+  content: "";
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all 0.2s ease-out;
+  width: 100%;
+}
+.menu__icon .navicon:before {
+  top: 6px;
+}
+.menu__icon .navicon:after {
+  top: -6px;
+}
+
+.menu__button {
+  display: none;
+}
+
+.menu__icon {
+  display: none;
+}
+
+.menu__button:checked ~ .menu__icon .navicon {
+  background: transparent;
+}
+.menu__button:checked ~ .menu__icon .navicon:before {
+  transform: rotate(-45deg);
+}
+.menu__button:checked ~ .menu__icon .navicon:after {
+  transform: rotate(45deg);
+}
+.menu__button:checked ~ .menu__icon:not(.steps) .navicon:before,
+.menu__button:checked ~ .menu__icon:not(.steps) .navicon:after {
+  top: 0;
+}
+
+@media (max-width: 1024px) {
+  .header__logo {
+    height: 25px;
+    width: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu__icon {
+    display: inline-block;
+  }
+  .header__list {
+    display: none;
+    transition: display 0.2s ease-out;
+  }
+
+  .header__list {
+    position: absolute;
+    left: 0;
+    align-items: center;
+    gap: 0;
+    display: none;
+    width: 100vw;
+    box-sizing: border-box;
+    flex-direction: column;
+    margin-bottom: 20px;
+    background-color: white;
+    padding: 1rem;
+  }
+
+  .header__element {
+    padding: 0.5rem;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .header__element:hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
+  }
+
+  .menu__button:checked ~ .header__list {
+    display: flex;
+  }
+}
+
+@media (max-width: 576px) {
+  .header__logo {
+    height: 20px;
+    width: 20px;
+  }
+}
+
+/* Footer Part */
+
+.footer__wrapper {
+  position: absolute;
+  width: 100vw;
+  overflow: hidden;
+  background-color: #f2f2f2;
+  margin-top: 50px;
+  left: 0;
+  box-sizing: border-box;
+}
+
+.footer {
+  margin: 0 auto;
+  padding: 24px 5% 24px 5%;
+  max-width: 1184px;
+  width: 100%;
+  display: flex;
+  align-items: end;
+  box-sizing: border-box;
+}
+
+.footer__copyright {
+  right: 0;
+  margin: 0;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 14px;
+  margin-left: auto;
+  color: gray;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    align-items: start;
+    margin: 0 auto;
+  }
+  .footer__copyright {
+    margin: 0 auto;
+  }
+}
+
+/* General */
+
+.page__title {
+  color: #00a6a6;
+  font-size: 50px;
+  margin-bottom: 0;
+}
+
+.section__row {
+  display: flex;
+  position: relative;
+  gap: 30px;
+  align-items: center;
+  width: 100%;
+}
+
+.section__column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.section__rowPart {
+  width: 100%;
+}
+
+.section__fullColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  height: 400px;
+  gap: 30px;
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .page__title {
+    font-size: 45px;
+  }
+}
+
+@media (max-width: 768px) {
+  .page__title {
+    text-align: center;
+    font-size: 40px;
+  }
+  .section__fullColumn {
+    height: auto;
+  }
+
+  .section__rowPart {
+    text-align: center;
+  }
+  .section__row {
+    flex-direction: column-reverse;
+  }
+  .legend-label {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  .section__fullColumn {
+    gap: 15px;
+  }
+  .page__title {
+    font-size: 30px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 375px) {
+  .section__rowPart {
+    font-size: 12px;
+  }
+  .legend-label {
+    font-size: 14px;
+  }
+}
+
+/* Bonne Section */
+
+.map {
+  width: max-content;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map .marker {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  background-image: url("asserts/heart-circle.svg");
+  background-size: cover;
+}
+
+.markerMinnesota {
+  top: 130px;
+  left: 169px;
+}
+
+.markerVienna {
+  top: 190px;
+  left: 280px;
+}
+
+.markerSaintPetersburg {
+  top: 173px;
+  left: 290px;
+}
+.markerBratsk {
+  top: 115px;
+  left: 360px;
+}
+
+.bonne__image {
+  height: 470px;
+  width: auto;
+}
+
+.legend {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-inline-start: 0;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+}
+
+.legend-color {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.legend-water {
+  background-color: #27528c;
+}
+
+.legend-land {
+  background-color: #00a6a6;
+}
+
+.legend-cities {
+  background-image: url("asserts/heart-circle.svg");
+  background-size: cover;
+}
+
+.square {
+  width: 40px;
+  height: 40px;
+  border: 1px solid lightgray;
+  position: relative;
+  margin-right: 10px;
+}
+
+.lines-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.line {
+  position: absolute;
+  background-color: lightgray;
+}
+
+.horizontal {
+  width: 100%;
+  height: 1px;
+}
+
+.vertical {
+  width: 1px;
+  height: 100%;
+}
+
+.line:nth-child(1) {
+  top: calc(16.67% - 1px);
+}
+
+.line:nth-child(2) {
+  left: calc(16.67% - 1px);
+}
+
+.line:nth-child(3) {
+  top: calc(50% - 1px);
+}
+
+.line:nth-child(4) {
+  left: calc(50% - 1px);
+}
+
+.line:nth-child(5) {
+  top: calc(83.33% - 1px);
+}
+
+.line:nth-child(6) {
+  left: calc(83.33% - 1px);
+}
+
+@media (max-width: 1024px) {
+  .bonne__image {
+    height: 380px;
+  }
+
+  .markerMinnesota {
+    top: 110px;
+    left: 130px;
+  }
+
+  .markerVienna {
+    top: 157px;
+    left: 225px;
+  }
+
+  .markerSaintPetersburg {
+    top: 140px;
+    left: 235px;
+  }
+  .markerBratsk {
+    top: 100px;
+    left: 290px;
+  }
+}
+
+@media (max-width: 768px) {
+  .legend {
+    flex-direction: row;
+    justify-content: center;
+  }
+  .legend-color {
+    width: 25px;
+    height: 25px;
+  }
+  .square {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+@media (max-width: 576px) {
+  .bonne__image {
+    height: 300px;
+  }
+
+  .legend-color {
+    width: 25px;
+    height: 25px;
+  }
+  .square {
+    width: 25px;
+    height: 25px;
+  }
+
+  .markerMinnesota {
+    top: 95px;
+    left: 110px;
+  }
+
+  .markerVienna {
+    top: 122px;
+    left: 180px;
+  }
+
+  .markerSaintPetersburg {
+    top: 105px;
+    left: 185px;
+  }
+  .markerBratsk {
+    top: 80px;
+    left: 230px;
+  }
+}
+
+@media (max-width: 375px) {
+  .bonne__image {
+    height: 150px;
+  }
+
+  .legend {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .markerMinnesota {
+    top: 48px;
+    left: 50px;
+  }
+
+  .markerVienna {
+    top: 60px;
+    left: 90px;
+  }
+
+  .markerSaintPetersburg {
+    top: 52px;
+    left: 95px;
+  }
+  .markerBratsk {
+    top: 45px;
+    left: 120px;
+  }
+}
+
+/* 
+The World without Bonne */
+
+.map__image {
+  background-image: url("asserts/world.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center top;
+  width: 100%;
+  height: 500px;
+}
+
+@media (max-width: 1024px) {
+  .map__image {
+    height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .map__image {
+    height: 300px;
+  }
+}
+
+@media (max-width: 576px) {
+  .map__image {
+    height: 200px;
+  }
+}
+
+@media (max-width: 375px) {
+  .map__image {
+    height: 100px;
+  }
+}
+
+/* Assignment Note */
+
+.assignmentBox {
+  padding: 1rem;
+  border-radius: 20px;
+  background-color: #f2f2f2;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .assignmentBox {
+    font-size: 12px;
+  }
+}
